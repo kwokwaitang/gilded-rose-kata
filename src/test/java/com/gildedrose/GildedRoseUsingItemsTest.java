@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class GildedRoseUsingItemsTest {
+class GildedRoseUsingItemsTest {
 
     @Test
     void usingPlusFiveDexterityVestOver3Days() {
@@ -21,6 +21,16 @@ public class GildedRoseUsingItemsTest {
         assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
         assertThat(plusFiveDexterityVest.getSellIn(), is(7));
         assertThat(plusFiveDexterityVest.getQuality(), is(17));
+    }
+
+    @Test
+    void usingPlusFiveDexterityVestOver4Days() {
+        PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
+        plusFiveDexterityVest.updateQuality(4);
+
+        assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
+        assertThat(plusFiveDexterityVest.getSellIn(), is(6));
+        assertThat(plusFiveDexterityVest.getQuality(), is(16));
     }
 
     @Test
@@ -129,6 +139,11 @@ public class GildedRoseUsingItemsTest {
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
+
+        assertThat(agedBrie.getName(), is("Aged Brie"));
+        assertThat(agedBrie.getSellIn(), is(-4));
+        assertThat(agedBrie.getQuality(), is(10));
+
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);

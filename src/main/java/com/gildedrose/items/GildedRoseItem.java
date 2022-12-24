@@ -1,6 +1,6 @@
 package com.gildedrose.items;
 
-abstract class GildedRoseItem {
+public abstract class GildedRoseItem {
     protected String name;
 
     protected int sellIn;
@@ -29,6 +29,10 @@ abstract class GildedRoseItem {
 
     public int getQuality() {
         return quality;
+    }
+
+    public void updateQuality() {
+        updateQuality(1);
     }
 
     public void updateQuality(final int days) {
