@@ -7,40 +7,32 @@ import com.gildedrose.items.ElixirOfTheMongoose;
 import com.gildedrose.items.PlusFiveDexterityVest;
 import com.gildedrose.items.SulfurasHandOfRagnaros;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 class GildedRoseUsingItemsTest {
 
-    @Test
-    void usingPlusFiveDexterityVestOver3Days() {
+    @ParameterizedTest
+    @CsvSource({
+        "3, 7, 17",
+        "4, 6, 16",
+        "8, 2, 12"
+    })
+    void usingPlusFiveDexterityVestWithArgumentsAccessor(ArgumentsAccessor arguments) {
+        int days = arguments.get(0, Integer.class);
+        int sellIn = arguments.get(1, Integer.class);
+        int quality = arguments.get(2, Integer.class);
+
         PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
-        plusFiveDexterityVest.updateQuality(3);
+        plusFiveDexterityVest.updateQuality(days);
 
         assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
-        assertThat(plusFiveDexterityVest.getSellIn(), is(7));
-        assertThat(plusFiveDexterityVest.getQuality(), is(17));
-    }
-
-    @Test
-    void usingPlusFiveDexterityVestOver4Days() {
-        PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
-        plusFiveDexterityVest.updateQuality(4);
-
-        assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
-        assertThat(plusFiveDexterityVest.getSellIn(), is(6));
-        assertThat(plusFiveDexterityVest.getQuality(), is(16));
-    }
-
-    @Test
-    void usingPlusFiveDexterityVestOver8Days() {
-        PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
-        plusFiveDexterityVest.updateQuality(8);
-
-        assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
-        assertThat(plusFiveDexterityVest.getSellIn(), is(2));
-        assertThat(plusFiveDexterityVest.getQuality(), is(12));
+        assertThat(plusFiveDexterityVest.getSellIn(), is(sellIn));
+        assertThat(plusFiveDexterityVest.getQuality(), is(quality));
     }
 
     @Test
@@ -63,54 +55,25 @@ class GildedRoseUsingItemsTest {
         assertThat(plusFiveDexterityVest.getQuality(), is(0));
     }
 
-    @Test
-    void usingAgedBrieOver1Day() {
+    @ParameterizedTest
+    @CsvSource({
+        "1, 1, 1",
+        "2, 0, 2",
+        "9, -7, 16",
+        "18, -16, 34",
+        "30, -28, 50"
+    })
+    void usingAgedBrieWithArgumentsAccessor(ArgumentsAccessor arguments) {
+        int days = arguments.get(0, Integer.class);
+        int sellIn = arguments.get(1, Integer.class);
+        int quality = arguments.get(2, Integer.class);
+
         AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
-        agedBrie.updateQuality(1);
+        agedBrie.updateQuality(days);
 
         assertThat(agedBrie.getName(), is("Aged Brie"));
-        assertThat(agedBrie.getSellIn(), is(1));
-        assertThat(agedBrie.getQuality(), is(1));
-    }
-
-    @Test
-    void usingAgedBrieOver9Days() {
-        AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
-        agedBrie.updateQuality(9);
-
-        assertThat(agedBrie.getName(), is("Aged Brie"));
-        assertThat(agedBrie.getSellIn(), is(-7));
-        assertThat(agedBrie.getQuality(), is(16));
-    }
-
-    @Test
-    void usingAgedBrieOver30Days() {
-        AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
-        agedBrie.updateQuality(30);
-
-        assertThat(agedBrie.getName(), is("Aged Brie"));
-        assertThat(agedBrie.getSellIn(), is(-28));
-        assertThat(agedBrie.getQuality(), is(50));
-    }
-
-    @Test
-    void usingAgedBrieOver18Days() {
-        AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
-        agedBrie.updateQuality(18);
-
-        assertThat(agedBrie.getName(), is("Aged Brie"));
-        assertThat(agedBrie.getSellIn(), is(-16));
-        assertThat(agedBrie.getQuality(), is(34));
-    }
-
-    @Test
-    void usingAgedBrieOver2Days() {
-        AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
-        agedBrie.updateQuality(2);
-
-        assertThat(agedBrie.getName(), is("Aged Brie"));
-        assertThat(agedBrie.getSellIn(), is(0));
-        assertThat(agedBrie.getQuality(), is(2));
+        assertThat(agedBrie.getSellIn(), is(sellIn));
+        assertThat(agedBrie.getQuality(), is(quality));
     }
 
     @Test
