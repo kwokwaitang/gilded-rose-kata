@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+}
+
+group = 'com.gildedrose'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+test {
+    useJUnitPlatform()
+}
+
+task day3Test(type: JavaExec) {
+    main = "com.gildedrose.TextTestFixture"
+    classpath = sourceSets.test.runtimeClasspath
+    args "3"
+}
+
+task day6Test(type: JavaExec) {
+    main = "com.gildedrose.TextTestFixture"
+    classpath = sourceSets.test.runtimeClasspath
+    args "6"
+}
+
+task day9Test(type: JavaExec) {
+    main = "com.gildedrose.TextTestFixture"
+    classpath = sourceSets.test.runtimeClasspath
+    args "9"
+}
