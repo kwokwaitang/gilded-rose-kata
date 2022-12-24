@@ -26,20 +26,8 @@ test {
     useJUnitPlatform()
 }
 
-task day3Test(type: JavaExec) {
+task textTest(type: JavaExec) {
     main = "com.gildedrose.TextTestFixture"
     classpath = sourceSets.test.runtimeClasspath
     args "3"
-}
-
-task day6Test(type: JavaExec) {
-    main = "com.gildedrose.TextTestFixture"
-    classpath = sourceSets.test.runtimeClasspath
-    args "6"
-}
-
-task day9Test(type: JavaExec) {
-    main = "com.gildedrose.TextTestFixture"
-    classpath = sourceSets.test.runtimeClasspath
-    args "9"
 }

@@ -235,33 +235,22 @@ class GildedRoseUsingItemsTest {
         assertThat(tafkal80etcConcert.getQuality(), is(0));
     }
 
-    @Test
-    void usingConjuredManaCakeOver3Days() {
+    @ParameterizedTest
+    @CsvSource({
+        "3, 0, 0",
+        "4, -1, 0",
+        "6, -3, 0"
+    })
+    void usingConjuredManaCakeWithArgumentsAccessor(ArgumentsAccessor arguments) {
+        final int days = arguments.get(0, Integer.class);
+        final int sellIn = arguments.get(1, Integer.class);
+        final int quality = arguments.get(2, Integer.class);
+
         final ConjuredManaCake conjuredManaCake = new ConjuredManaCake("Conjured Mana Cake", 3, 6);
-        conjuredManaCake.updateQuality(3);
+        conjuredManaCake.updateQuality(days);
 
         assertThat(conjuredManaCake.getName(), is("Conjured Mana Cake"));
-        assertThat(conjuredManaCake.getSellIn(), is(0));
-        assertThat(conjuredManaCake.getQuality(), is(0));
-    }
-
-    @Test
-    void usingConjuredManaCakeOver4Days() {
-        final ConjuredManaCake conjuredManaCake = new ConjuredManaCake("Conjured Mana Cake", 3, 6);
-        conjuredManaCake.updateQuality(4);
-
-        assertThat(conjuredManaCake.getName(), is("Conjured Mana Cake"));
-        assertThat(conjuredManaCake.getSellIn(), is(-1));
-        assertThat(conjuredManaCake.getQuality(), is(0));
-    }
-
-    @Test
-    void usingConjuredManaCakeOver6Days() {
-        final ConjuredManaCake conjuredManaCake = new ConjuredManaCake("Conjured Mana Cake", 3, 6);
-        conjuredManaCake.updateQuality(6);
-
-        assertThat(conjuredManaCake.getName(), is("Conjured Mana Cake"));
-        assertThat(conjuredManaCake.getSellIn(), is(-3));
-        assertThat(conjuredManaCake.getQuality(), is(0));
+        assertThat(conjuredManaCake.getSellIn(), is(sellIn));
+        assertThat(conjuredManaCake.getQuality(), is(quality));
     }
 }

@@ -8,7 +8,7 @@ import com.gildedrose.items.GildedRoseItem;
 import com.gildedrose.items.PlusFiveDexterityVest;
 import com.gildedrose.items.SulfurasHandOfRagnaros;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -19,28 +19,33 @@ public class TextTestFixture {
     public static void main(String[] args) {
         LOGGER.info("OMGHAI!");
 
-        int days = 2;
+        int days = 3;
         if (args.length > 0) {
-            days = Integer.parseInt(args[0]) + 1;
+            days = Integer.parseInt(args[0]);
         }
 
-        List<GildedRoseItem> items = new ArrayList<>();
-        items.add(new PlusFiveDexterityVest(10, 20));
-        items.add(new AgedBrie(2, 0));
-        items.add(new ElixirOfTheMongoose(5, 7));
-        items.add(new SulfurasHandOfRagnaros(0, 80));
-        items.add(new SulfurasHandOfRagnaros(-1, 80));
-        items.add(new BackstageConcertPasses(15, 20));
-        items.add(new BackstageConcertPasses(10, 49));
-        items.add(new BackstageConcertPasses(5, 49));
-        items.add(new ConjuredManaCake(3, 6));
+        List<GildedRoseItem> items = Arrays.asList(
+            new PlusFiveDexterityVest(10, 20),
+            new AgedBrie(2, 0),
+            new ElixirOfTheMongoose(5, 7),
+            new SulfurasHandOfRagnaros(0, 80),
+            new SulfurasHandOfRagnaros(-1, 80),
+            new BackstageConcertPasses(15, 20),
+            new BackstageConcertPasses(10, 49),
+            new BackstageConcertPasses(5, 49),
+            new ConjuredManaCake(3, 6)
+        );
 
         StringBuilder result = new StringBuilder("\n\n");
+        StringBuilder header = new StringBuilder();
 
+        days += 1;
         for (int i = 0; i < days; i++) {
-            String header = "-------- day " + i + " --------";
+            header.setLength(0);
+            header.append("-------- day ").append(i).append(" --------");
             if (i == 0) {
-                header = "-------- day " + i + " (set-up) --------";
+                header.setLength(i);
+                header.append("-------- day ").append(i).append(" (set-up) --------");
             }
             result.append(header).append("\n");
             result.append("name, sellIn, quality").append("\n");
