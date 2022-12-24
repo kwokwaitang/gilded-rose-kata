@@ -246,7 +246,7 @@ class GildedRoseUsingItemsTest {
         final int sellIn = arguments.get(1, Integer.class);
         final int quality = arguments.get(2, Integer.class);
 
-        final ConjuredManaCake conjuredManaCake = new ConjuredManaCake("Conjured Mana Cake", 3, 6);
+        final ConjuredManaCake conjuredManaCake = new ConjuredManaCake(3, 6);
         conjuredManaCake.updateQuality(days);
 
         assertThat(conjuredManaCake.getName(), is("Conjured Mana Cake"));
