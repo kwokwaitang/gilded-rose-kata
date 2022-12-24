@@ -11,12 +11,30 @@ public class ElixirOfTheMongoose extends GildedRoseItem {
     }
 
     // Same rule as "+5 Dexterity Vest"
+//    @Override
+//    public void itemRules() {
+//        if (quality > 0) {
+//            --quality;
+//        }
+//
+//        --sellIn;
+//
+//        if (sellIn < 0) {
+//            if (quality > 0) {
+//                --quality;
+//            }
+//        }
+//    }
+
     @Override
-    public void itemRules() {
+    public void initialRule() {
         if (quality > 0) {
             --quality;
         }
+    }
 
+    @Override
+    public void endRule() {
         --sellIn;
 
         if (sellIn < 0) {

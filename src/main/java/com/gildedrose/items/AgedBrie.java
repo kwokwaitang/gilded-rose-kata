@@ -11,11 +11,14 @@ public class AgedBrie extends GildedRoseItem {
     }
 
     @Override
-    public void itemRules() {
+    public void initialRule() {
         if (quality < 50) {
             ++quality;
         }
+    }
 
+    @Override
+    public void endRule() {
         --sellIn;
 
         if (sellIn < 0) {

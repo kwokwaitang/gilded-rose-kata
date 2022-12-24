@@ -11,11 +11,14 @@ public class ConjuredManaCake extends GildedRoseItem {
     }
 
     @Override
-    public void itemRules() {
+    public void initialRule() {
         if (quality > 0) {
             quality -= 2;
         }
+    }
 
+    @Override
+    public void endRule() {
         --sellIn;
 
         if (sellIn < 0) {

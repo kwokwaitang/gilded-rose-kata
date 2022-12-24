@@ -11,7 +11,7 @@ public class BackstageConcertPasses extends GildedRoseItem {
     }
 
     @Override
-    public void itemRules() {
+    public void initialRule() {
         if (quality < 50) {
             ++quality;
             if (sellIn < 11) {
@@ -26,7 +26,10 @@ public class BackstageConcertPasses extends GildedRoseItem {
                 }
             }
         }
+    }
 
+    @Override
+    public void endRule() {
         --sellIn;
 
         if (sellIn < 0) {

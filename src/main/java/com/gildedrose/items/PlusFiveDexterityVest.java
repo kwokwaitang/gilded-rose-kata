@@ -10,13 +10,15 @@ public class PlusFiveDexterityVest extends GildedRoseItem {
         super(name, sellIn, quality);
     }
 
-    // Same rule as "Elixir of the Mongoose"
     @Override
-    public void itemRules() {
+    public void initialRule() {
         if (quality > 0) {
             --quality;
         }
+    }
 
+    @Override
+    public void endRule() {
         --sellIn;
 
         if (sellIn < 0) {

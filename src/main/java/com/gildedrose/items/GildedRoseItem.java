@@ -33,11 +33,14 @@ abstract class GildedRoseItem {
 
     public void updateQuality(final int days) {
         for (int i = 0; i < days; i++) {
-            itemRules();
+            initialRule();
+            endRule();
         }
     }
 
-    public abstract void itemRules();
+    public abstract void initialRule();
+
+    public abstract void endRule();
 
     @Override
     public String toString() {

@@ -11,7 +11,12 @@ public class SulfurasHandOfRagnaros extends GildedRoseItem {
     }
 
     @Override
-    public void itemRules() {
+    public void initialRule() {
+        // No rules apply
+    }
+
+    @Override
+    public void endRule() {
         // No rules apply
     }
 }
