@@ -7,12 +7,6 @@ public abstract class GildedRoseItem {
 
     protected int quality;
 
-    protected GildedRoseItem(int sellIn, int quality) {
-        this.name = "";
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
-
     protected GildedRoseItem(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
@@ -35,7 +29,7 @@ public abstract class GildedRoseItem {
         updateQuality(1);
     }
 
-    public void updateQuality(final int days) {
+    public final /* to prevent this method from being overridden */ void updateQuality(final int days) {
         for (int i = 0; i < days; i++) {
             initialRule();
             endRule();
