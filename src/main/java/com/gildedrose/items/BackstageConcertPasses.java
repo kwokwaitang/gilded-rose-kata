@@ -19,10 +19,8 @@ public class BackstageConcertPasses extends GildedRoseItem {
                     ++quality;
                 }
 
-                if (sellIn < 6) {
-                    if (quality < 50) {
-                        ++quality;
-                    }
+                if (sellIn < 6 && quality < 50) {
+                    ++quality;
                 }
             }
         }
@@ -32,10 +30,8 @@ public class BackstageConcertPasses extends GildedRoseItem {
     public void endRule() {
         --sellIn;
 
-        if (sellIn < 0) {
-            if (quality > 0) {
-                quality -= quality;
-            }
+        if (sellIn < 0 && quality > 0) {
+            quality -= quality;
         }
     }
 }
