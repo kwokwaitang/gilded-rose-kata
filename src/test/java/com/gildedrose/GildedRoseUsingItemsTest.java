@@ -20,39 +20,21 @@ class GildedRoseUsingItemsTest {
     @CsvSource({
         "3, 7, 17",
         "4, 6, 16",
-        "8, 2, 12"
+        "8, 2, 12",
+        "17, -7, 0",
+        "30, -20, 0"
     })
     void usingPlusFiveDexterityVestWithArgumentsAccessor(ArgumentsAccessor arguments) {
         final int days = arguments.get(0, Integer.class);
         final int sellIn = arguments.get(1, Integer.class);
         final int quality = arguments.get(2, Integer.class);
 
-        final PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
+        final PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest(10, 20);
         plusFiveDexterityVest.updateQuality(days);
 
         assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
         assertThat(plusFiveDexterityVest.getSellIn(), is(sellIn));
         assertThat(plusFiveDexterityVest.getQuality(), is(quality));
-    }
-
-    @Test
-    void usingPlusFiveDexterityVestOver17Days() {
-        final PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest(10, 20);
-        plusFiveDexterityVest.updateQuality(17);
-
-        assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
-        assertThat(plusFiveDexterityVest.getSellIn(), is(-7));
-        assertThat(plusFiveDexterityVest.getQuality(), is(0));
-    }
-
-    @Test
-    void usingPlusFiveDexterityVestOver30Days() {
-        final PlusFiveDexterityVest plusFiveDexterityVest = new PlusFiveDexterityVest("+5 Dexterity Vest", 10, 20);
-        plusFiveDexterityVest.updateQuality(30);
-
-        assertThat(plusFiveDexterityVest.getName(), is("+5 Dexterity Vest"));
-        assertThat(plusFiveDexterityVest.getSellIn(), is(-20));
-        assertThat(plusFiveDexterityVest.getQuality(), is(0));
     }
 
     @ParameterizedTest
@@ -115,34 +97,33 @@ class GildedRoseUsingItemsTest {
         assertThat(agedBrie.getQuality(), is(16));
     }
 
-    @Test
-    void usingElixirOfTheMongooseOver1Day() {
-        final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose("Elixir of the Mongoose", 5, 7);
-        elixirOfTheMongoose.updateQuality(1);
+    @ParameterizedTest
+    @CsvSource({
+        "1, 4, 6",
+        "23, -18, 0",
+        "30, -25, 0"
+    })
+    void usingElixirOfTheMongooseWithArgumentsAccessor(ArgumentsAccessor arguments) {
+        final int days = arguments.get(0, Integer.class);
+        final int sellIn = arguments.get(1, Integer.class);
+        final int quality = arguments.get(2, Integer.class);
+
+        final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose(5, 7);
+        elixirOfTheMongoose.updateQuality(days);
 
         assertThat(elixirOfTheMongoose.getName(), is("Elixir of the Mongoose"));
-        assertThat(elixirOfTheMongoose.getSellIn(), is(4));
-        assertThat(elixirOfTheMongoose.getQuality(), is(6));
+        assertThat(elixirOfTheMongoose.getSellIn(), is(sellIn));
+        assertThat(elixirOfTheMongoose.getQuality(), is(quality));
     }
 
     @Test
     void usingElixirOfTheMongooseOver23Days() {
         final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose("Elixir of the Mongoose", 5, 7);
-        elixirOfTheMongoose.updateQuality(23);
+        elixirOfTheMongoose.updateQuality(4);
 
         assertThat(elixirOfTheMongoose.getName(), is("Elixir of the Mongoose"));
-        assertThat(elixirOfTheMongoose.getSellIn(), is(-18));
-        assertThat(elixirOfTheMongoose.getQuality(), is(0));
-    }
-
-    @Test
-    void usingElixirOfTheMongooseOver30Days() {
-        final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose(5, 7);
-        elixirOfTheMongoose.updateQuality(30);
-
-        assertThat(elixirOfTheMongoose.getName(), is("Elixir of the Mongoose"));
-        assertThat(elixirOfTheMongoose.getSellIn(), is(-25));
-        assertThat(elixirOfTheMongoose.getQuality(), is(0));
+        assertThat(elixirOfTheMongoose.getSellIn(), is(1));
+        assertThat(elixirOfTheMongoose.getQuality(), is(3));
     }
 
     @Test
@@ -239,7 +220,8 @@ class GildedRoseUsingItemsTest {
     @CsvSource({
         "3, 0, 0",
         "4, -1, 0",
-        "6, -3, 0"
+        "6, -3, 0",
+        "28, -25, 0"
     })
     void usingConjuredManaCakeWithArgumentsAccessor(ArgumentsAccessor arguments) {
         final int days = arguments.get(0, Integer.class);

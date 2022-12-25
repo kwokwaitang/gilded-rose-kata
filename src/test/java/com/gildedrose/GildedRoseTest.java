@@ -3,12 +3,14 @@ package com.gildedrose;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 // TODO Don't forget to set-up a parameterized test
 
@@ -69,7 +71,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void usingItemForPlus5DexterityVestOver25ays() {
+    void usingItemForPlus5DexterityVestOver21ays() {
         Item[] items = new Item[] {
             new Item("+5 Dexterity Vest", 10, 20)
         };
@@ -312,17 +314,8 @@ class GildedRoseTest {
         Item backstagePass2 = app.items[1];
         Item backstagePass3 = app.items[2];
 
-        assertEquals(name, backstagePass1.name);
-//        assertEquals("Backstage passes to a TAFKAL80ETC concert", backstagePass2.name);
-//        assertEquals("Backstage passes to a TAFKAL80ETC concert", backstagePass3.name);
-
-        // As set-up initially...
-//        assertEquals(15,backstagePass1.sellIn);
-//        assertEquals(20, backstagePass1.quality);
-//        assertEquals(10,backstagePass2.sellIn);
-//        assertEquals(49, backstagePass2.quality);
-//        assertEquals(5,backstagePass3.sellIn);
-//        assertEquals(49, backstagePass3.quality);
+        List<String> backstagePassNames = Arrays.asList(backstagePass1.name, backstagePass2.name, backstagePass3.name);
+        assertTrue(backstagePassNames.stream().allMatch(backstagePassName -> backstagePassName.equals("Backstage passes to a TAFKAL80ETC concert")));
 
         // Run for 3 days...
         app.updateQuality(3);
