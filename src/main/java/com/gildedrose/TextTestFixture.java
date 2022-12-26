@@ -24,7 +24,7 @@ public class TextTestFixture {
             days = Integer.parseInt(args[0]);
         }
 
-        List<GildedRoseItem> items = Arrays.asList(
+        List<? /* any object that */ extends GildedRoseItem> items = Arrays.asList(
             new PlusFiveDexterityVest(10, 20),
             new AgedBrie(2, 0),
             new ElixirOfTheMongoose(5, 7),
