@@ -36,10 +36,14 @@ public class TextTestFixture {
             new ConjuredManaCake(3, 6)
         );
 
+        String output = generateOutput(days, items);
+        LOGGER.info(output);
+    }
+
+    public static String generateOutput(final int days, final List<? /* any object that */ extends GildedRoseItem> items) {
         StringBuilder result = new StringBuilder("\n\n");
         StringBuilder header = new StringBuilder();
 
-        days += 1;
         for (int i = 0; i < days; i++) {
             header.setLength(0);
             header.append("-------- day ").append(i).append(" --------");
@@ -58,7 +62,6 @@ public class TextTestFixture {
             result.append("\n");
         }
 
-        String output = result.toString();
-        LOGGER.info(output);
+       return result.toString();
     }
 }

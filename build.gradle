@@ -16,6 +16,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.hamcrest/hamcrest
     testImplementation 'org.hamcrest:hamcrest:2.2'
+
+    // https://mvnrepository.com/artifact/com.oneeyedmen/okeydoke
+    implementation 'com.oneeyedmen:okeydoke:1.3.3'
 }
 
 group = 'com.gildedrose'
