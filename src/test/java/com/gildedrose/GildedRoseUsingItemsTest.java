@@ -167,7 +167,7 @@ class GildedRoseUsingItemsTest {
     }
 
     @Test
-    void usingBackstageConcertPassesForSecondConcertOver3Days() {
+    void usingBackstageConcertPassesForSecondConcertOver5Days() {
         final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 10, 49);
         tafkal80etcConcert.updateQuality(5);
 
