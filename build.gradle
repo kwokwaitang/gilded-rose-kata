@@ -2,6 +2,8 @@ plugins {
     id 'java'
 }
 
+apply plugin: "groovy"
+
 repositories {
     mavenCentral()
 }
@@ -15,6 +17,10 @@ dependencies {
     implementation 'org.codehaus.groovy:groovy:3.0.8'
     testImplementation 'io.cucumber:cucumber-java:6.10.4'
     testImplementation 'io.cucumber:cucumber-junit:6.10.4'
+
+    // Spock
+    testImplementation platform('org.spockframework:spock-bom:2.0-groovy-3.0')
+    testImplementation 'org.spockframework:spock-core'
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation 'org.apache.commons:commons-lang3:3.12.0'
