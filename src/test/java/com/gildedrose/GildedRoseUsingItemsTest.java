@@ -22,6 +22,7 @@ class GildedRoseUsingItemsTest {
         "4, 6, 16",
         "8, 2, 12",
         "17, -7, 0",
+        "21, -11, 0",
         "30, -20, 0"
     })
     void usingPlusFiveDexterityVestWithArgumentsAccessor(ArgumentsAccessor arguments) {
