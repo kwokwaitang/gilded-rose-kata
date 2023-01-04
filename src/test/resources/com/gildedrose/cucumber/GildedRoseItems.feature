@@ -25,7 +25,7 @@ Feature: Gilded Rose quality when using refactored items
             | 18   | -16     | 34      |
             | 30   | -28     | 50      |
 
-  # For Elixir Of The Mongoose
+    # For Elixir Of The Mongoose
     Scenario: Checking the Elixir of the Mongoose over 1 day
         Given The item name is "Elixir of the Mongoose" with an initial sell in as 5 and quality as 7
         When I update the quality over 1 day
@@ -40,7 +40,7 @@ Feature: Gilded Rose quality when using refactored items
             | 23   | -18     | 0       |
             | 30   | -25     | 0       |
 
-  # For Sulfuras, Hand Of Ragnaros
+    # For Sulfuras, Hand Of Ragnaros
     Scenario: Checking the Sulfuras, Hand Of Ragnaros over 1 day
         Given The item name is "Sulfuras, Hand of Ragnaros" with an initial sell in as 0 and quality as 80
         When I update the quality over 1 day
@@ -51,7 +51,7 @@ Feature: Gilded Rose quality when using refactored items
         When I update the quality over 80 days
         Then I should get sell in as 0 and quality as 80
 
-  # For Backstage Concert Passes
+    # For Backstage Concert Passes
     Scenario: Checking the Backstage passes to a TAFKAL80ETC concert over 2 days
         Given The item name is "Backstage passes to a TAFKAL80ETC concert" with an initial sell in as 5 and quality as 49
         When I update the quality over 2 days
@@ -67,7 +67,7 @@ Feature: Gilded Rose quality when using refactored items
         When I update the quality over 5 days
         Then I should get sell in as 5 and quality as 50
 
-  # For Conjured Mana Cake
+    # For Conjured Mana Cake
     Scenario Outline: Checking the Conjured Mana Cake over a number of days
         Given The item name is "Conjured Mana Cake" with an initial sell in as 3 and quality as 6
         When I update the quality over <days> days
