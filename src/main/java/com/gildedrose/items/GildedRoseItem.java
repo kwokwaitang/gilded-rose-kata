@@ -38,6 +38,6 @@ public abstract class GildedRoseItem {
 
     @Override
     public String toString() {
-        return item.name + ", " + item.sellIn + ", " + item.quality;
+        return item.toString();
     }
 }
