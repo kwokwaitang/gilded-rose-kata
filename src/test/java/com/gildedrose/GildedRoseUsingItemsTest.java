@@ -51,7 +51,7 @@ class GildedRoseUsingItemsTest {
         final int sellIn = arguments.get(1, Integer.class);
         final int quality = arguments.get(2, Integer.class);
 
-        final AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
+        final AgedBrie agedBrie = new AgedBrie(2, 0);
         agedBrie.updateQuality(days);
 
         assertThat(agedBrie.getName(), is("Aged Brie"));
@@ -61,7 +61,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingAgedBrieOver3Days() {
-        final AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
+        final AgedBrie agedBrie = new AgedBrie(2, 0);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
@@ -73,7 +73,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingAgedBrieOver9DaysChecksOn3rdAnd9thDays() {
-        final AgedBrie agedBrie = new AgedBrie("Aged Brie", 2, 0);
+        final AgedBrie agedBrie = new AgedBrie(2, 0);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
         agedBrie.updateQuality(1);
@@ -119,7 +119,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingElixirOfTheMongooseOver23Days() {
-        final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose("Elixir of the Mongoose", 5, 7);
+        final ElixirOfTheMongoose elixirOfTheMongoose = new ElixirOfTheMongoose(5, 7);
         elixirOfTheMongoose.updateQuality(4);
 
         assertThat(elixirOfTheMongoose.getName(), is("Elixir of the Mongoose"));
@@ -129,7 +129,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingSulfurasHandOfRagnarosWithNoChangeOver8Days() {
-        final SulfurasHandOfRagnaros sulfurasHandOfRagnaros = new SulfurasHandOfRagnaros("Sulfuras, Hand of Ragnaros", 0, 80);
+        final SulfurasHandOfRagnaros sulfurasHandOfRagnaros = new SulfurasHandOfRagnaros(0, 80);
         sulfurasHandOfRagnaros.updateQuality(8);
 
         assertThat(sulfurasHandOfRagnaros.getName(), is("Sulfuras, Hand of Ragnaros"));
@@ -139,7 +139,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForFirstConcertOver3Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(15, 20);
         tafkal80etcConcert.updateQuality(3);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -149,7 +149,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForFirstConcertOver11Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(15, 20);
         tafkal80etcConcert.updateQuality(11);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -159,7 +159,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForFirstConcertOver25Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(15, 20);
         tafkal80etcConcert.updateQuality(25);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -169,7 +169,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForSecondConcertOver5Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 10, 49);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(10, 49);
         tafkal80etcConcert.updateQuality(5);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -179,7 +179,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForSecondConcertOver15Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 10, 49);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(10, 49);
         tafkal80etcConcert.updateQuality(15);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -189,7 +189,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForSecondConcertOver21Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 10, 49);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(10, 49);
         tafkal80etcConcert.updateQuality(21);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));
@@ -199,7 +199,7 @@ class GildedRoseUsingItemsTest {
 
     @Test
     void usingBackstageConcertPassesForThirdConcertOver2Days() {
-        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses("Backstage passes to a TAFKAL80ETC concert", 5, 49);
+        final BackstageConcertPasses tafkal80etcConcert = new BackstageConcertPasses(5, 49);
         tafkal80etcConcert.updateQuality(2);
 
         assertThat(tafkal80etcConcert.getName(), is("Backstage passes to a TAFKAL80ETC concert"));

@@ -1,28 +1,30 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class ElixirOfTheMongoose extends GildedRoseItem {
 
-    public ElixirOfTheMongoose(int sellIn, int quality) {
-        this("Elixir of the Mongoose", sellIn, quality);
+    public ElixirOfTheMongoose(Item item) {
+        super(item);
     }
 
-    public ElixirOfTheMongoose(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public ElixirOfTheMongoose(int sellIn, int quality) {
+        this(new Item("Elixir of the Mongoose", sellIn, quality));
     }
 
     @Override
     public void initialRule() {
-        if (quality > 0) {
-            --quality;
+        if (item.quality > 0) {
+            --item.quality;
         }
     }
 
     @Override
     public void endRule() {
-        --sellIn;
+        --item.sellIn;
 
-        if (sellIn < 0 && quality > 0) {
-            --quality;
+        if (item.sellIn < 0 && item.quality > 0) {
+            --item.quality;
         }
     }
 }

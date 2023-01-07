@@ -1,28 +1,30 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class ConjuredManaCake extends GildedRoseItem {
 
-    public ConjuredManaCake(int sellIn, int quality) {
-        this("Conjured Mana Cake", sellIn, quality);
+    public ConjuredManaCake(Item item) {
+        super(item);
     }
 
-    public ConjuredManaCake(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public ConjuredManaCake(int sellIn, int quality) {
+        this(new Item("Conjured Mana Cake", sellIn, quality));
     }
 
     @Override
     public void initialRule() {
-        if (quality > 0) {
-            quality -= 2;
+        if (item.quality > 0) {
+            item.quality -= 2;
         }
     }
 
     @Override
     public void endRule() {
-        --sellIn;
+        --item.sellIn;
 
-        if (sellIn < 0 && quality > 0) {
-            --quality;
+        if (item.sellIn < 0 && item.quality > 0) {
+            --item.quality;
         }
     }
 }

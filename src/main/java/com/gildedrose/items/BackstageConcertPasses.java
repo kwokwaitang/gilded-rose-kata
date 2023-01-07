@@ -1,26 +1,28 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class BackstageConcertPasses extends GildedRoseItem {
 
-    public BackstageConcertPasses(int sellIn, int quality) {
-        this("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+    public BackstageConcertPasses(Item item) {
+        super(item);
     }
 
-    public BackstageConcertPasses(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public BackstageConcertPasses(int sellIn, int quality) {
+        this(new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality));
     }
 
     @Override
     public void initialRule() {
-        if (quality < 50) {
-            ++quality;
-            if (sellIn < 11) {
-                if (quality < 50) {
-                    ++quality;
+        if (item.quality < 50) {
+            ++item.quality;
+            if (item.sellIn < 11) {
+                if (item.quality < 50) {
+                    ++item.quality;
                 }
 
-                if (sellIn < 6 && quality < 50) {
-                    ++quality;
+                if (item.sellIn < 6 && item.quality < 50) {
+                    ++item.quality;
                 }
             }
         }
@@ -28,10 +30,10 @@ public class BackstageConcertPasses extends GildedRoseItem {
 
     @Override
     public void endRule() {
-        --sellIn;
+        --item.sellIn;
 
-        if (sellIn < 0 && quality > 0) {
-            quality -= quality;
+        if (item.sellIn < 0 && item.quality > 0) {
+            item.quality -= item.quality;
         }
     }
 }

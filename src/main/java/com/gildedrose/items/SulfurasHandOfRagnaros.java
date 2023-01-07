@@ -1,13 +1,15 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class SulfurasHandOfRagnaros extends GildedRoseItem {
 
-    public SulfurasHandOfRagnaros(int sellIn, int quality) {
-        this("Sulfuras, Hand of Ragnaros", sellIn, quality);
+    public SulfurasHandOfRagnaros(Item item) {
+        super(item);
     }
 
-    public SulfurasHandOfRagnaros(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public SulfurasHandOfRagnaros(int sellIn, int quality) {
+        this(new Item("Sulfuras, Hand of Ragnaros", sellIn, quality));
     }
 
     @Override

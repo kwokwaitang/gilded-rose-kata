@@ -1,28 +1,24 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public abstract class GildedRoseItem {
-    protected String name;
+    protected final Item item;
 
-    protected int sellIn;
-
-    protected int quality;
-
-    protected GildedRoseItem(String name, int sellIn, int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+    protected GildedRoseItem(Item item) {
+        this.item = item;
     }
 
     public String getName() {
-        return name;
+        return item.name;
     }
 
     public int getSellIn() {
-        return sellIn;
+        return item.sellIn;
     }
 
     public int getQuality() {
-        return quality;
+        return item.quality;
     }
 
     public void updateQuality() {
@@ -42,6 +38,6 @@ public abstract class GildedRoseItem {
 
     @Override
     public String toString() {
-        return name + ", " + sellIn + ", " + quality;
+        return item.name + ", " + item.sellIn + ", " + item.quality;
     }
 }
