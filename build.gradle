@@ -40,6 +40,9 @@ dependencies {
     implementation 'org.pitest:pitest-junit5-plugin:1.1.0'
 
 //    classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.9.0'
+
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java8
+    implementation 'io.cucumber:cucumber-java8:7.11.0'
 }
 
 configurations {
@@ -50,7 +53,7 @@ configurations {
 
 group = 'com.gildedrose'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 test {
     useJUnitPlatform()

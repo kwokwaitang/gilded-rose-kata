@@ -7,6 +7,11 @@ Feature: Gilded Rose quality when using refactored items
         When I update the quality over 3 days
         Then I should get sell in as 7 and quality as 17
 
+    Scenario: Alternative way of checking the sell in and quality of +5 Dexterity Vest over 3 day
+        Given abc "+5 Dexterity Vest" def 10 ghi 20
+        When jkl 3 days
+        Then mno 7 pqr 17
+
     # For Aged Brie
     Scenario: Checking the sell in and quality of Aged Brie over 1 days
         Given The item name is "Aged Brie" with an initial sell in as 2 and quality as 0
